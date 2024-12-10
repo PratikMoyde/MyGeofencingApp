@@ -53,6 +53,7 @@ const App = () => {
 
   // Start tracking the user's location and check if they exit the geofence
   const startTracking = () => {
+    console.log('User Location:', latitude, longitude)
     const id = Geolocation.watchPosition(
       (position) => {
         const { latitude, longitude } = position.coords
@@ -76,6 +77,7 @@ const App = () => {
       (error) => console.error('Error watching location:', error),
       { enableHighAccuracy: true, distanceFilter: 10, interval: 5000 }
     )
+    console.log("🚀 ~ startTracking ~ id:", id)
     setWatchId(id)
   }
 
